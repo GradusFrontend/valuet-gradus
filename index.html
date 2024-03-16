@@ -15,63 +15,169 @@
 
     <div class="wrapper">
 
-        <!-- <div class="sidebar">
-            <div class="top_sidebar">
-                <img class="logo" src="./public/icons/valuet-icon.svg" alt="logo">
-
-                <div class="pages_list">
-                    <a id="main_link" href="#">
-                        <div class="main_link active_page">
-                            <img src="./public/icons/main-icon.svg" alt="main">
-                            <h3>Overview</h3>
-                        </div>
-                    </a>
-
-                    <a id="wallets_link" href="#">
-                        <div class="wallets_link">
-                            <img src="./public/icons/wallets-icon.svg" alt="wallets">
-                            <h3>Wallets</h3>
-                        </div>
-                    </a>
-
-                    <a id="transactions_link" href="#">
-                        <div class="tran_link">
-                            <img src="./public/icons/transactions-icon.svg" alt="tran">
-                            <h3>Transactions</h3>
-                        </div>
-                    </a>
-
-                    <a id="convert_link" href="#">
-                        <div class="convert_link">
-                            <img src="./public/icons/convert-icon.svg" alt="convert">
-                            <h3>Exchange</h3>
-                        </div>
-                    </a>
-
-                    <a id="market_link" href="#">
-                        <div class="convert_link">
-                            <img src="./public/icons/market-icon.svg" alt="convert">
-                            <h3>Market</h3>
-                        </div>
-                    </a>
+        <div class="fakebar"></div>
+        <div class="wrap">
+            <div class="top_info">
+                <div class="top_info_text">
+                    <h2 class="overview">Overview</h2>
+                    <h3 class="today_date">16 March, Saturday</h3>
                 </div>
+
+                <a href="#" id="add_wallet_link">
+                    <button class="add_wallet_btn">Add Wallet</button>
+                </a>
             </div>
 
-            <div class="bottom_sidebar">
-                <div class="line"></div>
+            <section id="info">
+                <div class="balance_info">
+                    <h3 class="balance_title">Balance</h3>
 
-                <div class="account">
-                    <div class="avatar"></div>
-                    <h3 class="user_name">Mychael Jackson</h3>
+                    <div class="doughnut_chart_balance">
+                        <div class="balance_position">
+                            <h2>BALANCE</h2>
+                            <h3>8 300$</h3>
+                        </div>
+                    </div>
+
+                    <div class="currency_list">
+                        <div class="currency_item">
+                            <div class="currency_title">
+                                <div class="currency_color"></div>
+                                <p class="currency_name">Rubles</p>
+                            </div>
+
+                            <h4 class="currency_percent">50%</h4>
+                        </div>
+                        <div class="currency_item">
+                            <div class="currency_title">
+                                <div class="currency_color"></div>
+                                <p class="currency_name">Arabic State Dirham</p>
+                            </div>
+
+                            <h4 class="currency_percent">50%</h4>
+                        </div>
+                        <div class="currency_item">
+                            <div class="currency_title">
+                                <div class="currency_color"></div>
+                                <p class="currency_name">Indian Rupees</p>
+                            </div>
+
+                            <h4 class="currency_percent">50%</h4>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="log_out">
-                    <img src="./public/icons/log-out-icon.svg" alt="logout">
-                    <h3>Log Out</h3>
-                </div>
-            </div>
-        </div> -->
+                <div class="spending_info">
+                    <h3 class="spending_title">Spending</h3>
+                    <p class="spending_month">March</p>
 
+                    <h1 class="spending_total">9 568$</h1>
+                    <p class="total_spending_text">total spending</p>
+                    <div class="spending_chart_box">
+                        <canvas id="spending_chart"></canvas>
+                    </div>
+
+                </div>
+
+                <div class="wallets_grid">
+
+                    <div class="wallets_item">
+                        <h2 class="wallet_name">BitCoin</h2>
+                        <h3 class="wallet_min_balance">33434000 BTC</h3>
+
+                        <div class="wallet_stonks">
+                            <div class="stonks_item">
+                                <img src="./public/icons/stonks.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wallets_item">
+                        <h2 class="wallet_name">BitCoin</h2>
+                        <h3 class="wallet_min_balance">3000 BTC</h3>
+
+                        <div class="wallet_stonks">
+                            <div class="stonks_item">
+                                <img src="./public/icons/stonks.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wallets_item">
+                        <h2 class="wallet_name">BitCoin</h2>
+                        <h3 class="wallet_min_balance">3000 BTC</h3>
+
+                        <div class="wallet_stonks">
+                            <div class="stonks_item">
+                                <img src="./public/icons/stonks.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wallets_item">
+                        <h2 class="wallet_name">BitCoin</h2>
+                        <h3 class="wallet_min_balance">3000 BTC</h3>
+
+                        <div class="wallet_stonks">
+                            <div class="stonks_item">
+                                <img src="./public/icons/stonks.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                            <div class="stonks_item">
+                                <img src="./public/icons/regress.svg" alt="stonks">
+                                <h3>$1 200 = 0,034 btc</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="empty_chart_section">
+                <div class="top">
+                    <div class="left">
+                        <h2 class="empty_market">Market</h2>
+                        <h3 class="empty_currency">Bitcoin</h3>
+                    </div>
+
+                    <h3 class="empty_month">November</h3>
+                </div>
+                <div class="empty_chart_box">
+                    <canvas id="empty_chart" height="120pxw"></canvas>
+                </div>
+            </section>
+        </div>
 
     </div>
 

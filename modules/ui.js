@@ -17,6 +17,7 @@ export function toaster(text, type) {
 }
 
 const wrapper = document.querySelector('.wrapper')
+const wrap = document.querySelector('.wrap')
 
 
 export function sidebar() {
@@ -142,13 +143,13 @@ export function sidebar() {
 
     top_sidebar.append(logo, pagesList)
 
-    pagesList.append(mainLink, walletsLink, tranLink, convertLink, marketLink)
+    pagesList.append( mainLink, walletsLink, tranLink, convertLink, marketLink)
 
     mainLink.append(mainBlock)
     walletsLink.append(walletsBlock)
     tranLink.append(tranBlock)
     convertLink.append(convertBlock)
-    marketLink.append(mainBlock)
+    marketLink.append(marketBlock)
 
     mainBlock.append(mainIcon, mainTitle)
     walletsBlock.append(walletsIcon, walletsTitle)
@@ -160,3 +161,45 @@ export function sidebar() {
     account.append(avatar, userName)
     logOut.append(logOutIcon, logOutTitle)
 }
+
+export function header() {
+    let header = document.createElement('header')
+    let search_input_box = document.createElement('div')
+    let search_input = document.createElement('input')
+    let search_input_icon = document.createElement('img')
+    let header_tools = document.createElement('div')
+    let massages = document.createElement('img')
+    let notifications = document.createElement('img')
+
+    header.classList.add('header')
+    search_input_box.classList.add('search_input')
+    search_input.id = 'search_input'
+    search_input.type = 'text'
+
+    header_tools.classList.add('header_tools')
+
+    search_input_icon.src = './public/icons/search-icon.svg'
+    search_input_icon.alt = 'search'
+
+    massages.src = './public/icons/massages-icon.svg'
+    massages.alt = 'massages'
+    notifications.src = './public/icons/notifications-icon.svg'
+    notifications.alt = 'notifications'
+
+    wrap.prepend(header)
+    header.append(search_input_box, header_tools)
+    search_input_box.append(search_input, search_input_icon)
+    header_tools.append(massages, notifications)
+}
+
+/* <header class="header">
+    <div class="search_input">
+        <input id="search_input" type="text">
+        <img src="./public/icons/search-icon.svg" alt="">
+    </div>
+
+    <div class="header_tools">
+        <img src="./public/icons/massages-icon.svg" alt="">
+        <img src="./public/icons/notifications-icon.svg" alt="">
+    </div>
+</header> */
