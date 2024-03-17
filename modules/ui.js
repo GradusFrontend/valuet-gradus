@@ -1,3 +1,5 @@
+import { Chart } from "chart.js"
+
 export function toaster(text, type) {
     const custom_alert = document.createElement('div')
     const time_bar = document.createElement('div')
@@ -95,30 +97,32 @@ export function sidebar() {
     marketBlock.classList.add('market_link', 'page_link')
 
 
-    logo.src = './public/icons/valuet-icon.svg'
+    logo.src = '/public/icons/valuet-icon.svg'
 
     // main
-    mainIcon.src = './public/icons/main-icon.svg'
+    mainIcon.src = '/public/icons/main-icon.svg'
     mainIcon.alt = 'main icon'
     mainTitle.innerHTML = 'Overview'
+    mainLink.href = '/'
 
     // transactions
-    tranIcon.src = './public/icons/transactions-icon.svg'
+    tranIcon.src = '/public/icons/transactions-icon.svg'
     tranIcon.alt = 'tran'
     tranTitle.innerHTML = 'Transactions'
 
     // wallets
-    walletsIcon.src = './public/icons/wallets-icon.svg'
+    walletsIcon.src = '/public/icons/wallets-icon.svg'
     walletsIcon.alt = 'wallets'
     walletsTitle.innerHTML = 'Wallets'
+    walletsLink.href = '/pages/wallets/'
     
     // convert
-    convertIcon.src = './public/icons/convert-icon.svg'
+    convertIcon.src = '/public/icons/convert-icon.svg'
     convertIcon.alt = 'convert'
     convertTitle.innerHTML = 'Exchange'
 
     // market
-    marketIcon.src = './public/icons/market-icon.svg'
+    marketIcon.src = '/public/icons/market-icon.svg'
     marketIcon.alt = 'market'
     marketTitle.innerHTML = 'Market'
 
@@ -132,7 +136,7 @@ export function sidebar() {
     logOut.classList.add('log_out')
 
     userName.innerHTML = 'james fonik'
-    logOutIcon.src = './public/icons/log-out-icon.svg'
+    logOutIcon.src = '/public/icons/log-out-icon.svg'
     logOutIcon.alt = 'log out'
     logOutTitle.innerHTML = 'Log Out'
     
@@ -178,12 +182,12 @@ export function header() {
 
     header_tools.classList.add('header_tools')
 
-    search_input_icon.src = './public/icons/search-icon.svg'
+    search_input_icon.src = '/public/icons/search-icon.svg'
     search_input_icon.alt = 'search'
 
-    massages.src = './public/icons/massages-icon.svg'
+    massages.src = '/public/icons/massages-icon.svg'
     massages.alt = 'massages'
-    notifications.src = './public/icons/notifications-icon.svg'
+    notifications.src = '/public/icons/notifications-icon.svg'
     notifications.alt = 'notifications'
 
     wrap.prepend(header)
@@ -192,14 +196,52 @@ export function header() {
     header_tools.append(massages, notifications)
 }
 
-/* <header class="header">
-    <div class="search_input">
-        <input id="search_input" type="text">
-        <img src="./public/icons/search-icon.svg" alt="">
-    </div>
+export function balanceDoughnut (place) {
 
-    <div class="header_tools">
-        <img src="./public/icons/massages-icon.svg" alt="">
-        <img src="./public/icons/notifications-icon.svg" alt="">
-    </div>
-</header> */
+    const data = {
+        datasets: [{
+          label: 'My First Dataset',
+          data: [300, 50, 100, 140],
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)',
+            '#d595d5'
+          ],
+          hoverOffset: 4
+        }]
+      };
+
+      const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+          responsive: true,
+          borderWidth: 0,
+          cutout: '70%',
+          plugins: {
+            legend: {
+              position: 'top',
+            },
+            title: {
+              display: false,
+            }
+          }
+        },
+      };
+
+
+      new Chart(place, config)
+}
+
+export function getRandomColor(opacity) {
+    const r = Math.floor(Math.random() * 200);
+    const g = Math.floor(Math.random() * 200);
+    const b = Math.floor(Math.random() * 200);
+
+    if(opacity === '1') {
+        return `rgb(${r}, ${g}, ${b})`;
+    } else {
+        return `rgb(${r}, ${g}, ${b}, ${opacity})`;
+    }
+}

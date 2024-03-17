@@ -1,26 +1,14 @@
 import { toaster, sidebar, header } from "./modules/ui";
 import Chart from 'chart.js/auto'
+import { balanceDoughnut } from "./modules/ui";
 
 sidebar()
 header()
 
 const spending_chart = document.querySelector('#spending_chart')
 const empty_chart = document.querySelector('#empty_chart')
+const balance_doughnut = document.querySelector('#balance_doughnut')
 
-// const config = {
-//     type: 'line',
-//     data: data,
-// };
-// const data = {
-//     labels: labels,
-//     datasets: [{
-//         label: 'My First Dataset',
-//         data: [65, 59, 80, 81, 56, 55, 40],
-//         fill: false,
-//         borderColor: 'rgb(75, 192, 192)',
-//         tension: 0.1
-//     }]
-// };
 function spendingChart() {
     new Chart(spending_chart, {
         type: 'line',
@@ -30,7 +18,7 @@ function spendingChart() {
                 label: 'total',
                 data: [20, 40, 22, 30, 50, 42, 60],
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
+                borderColor: '#0097E8',
                 tension: 0.4
             }]
         },
@@ -43,7 +31,6 @@ function spendingChart() {
         }
     });
 }
-console.log(empty_chart);
 function emptyChart() {
     new Chart(empty_chart, {
         type: 'line',
@@ -53,7 +40,7 @@ function emptyChart() {
                 label: 'total',
                 data: [15000, 32000, 10000, 42000, 19000, 50000, 22000, 79000],
                 fill: false,
-                borderColor: 'rgb(75, 192, 192)',
+                borderColor: '#0097E8',
                 tension: 0.4
             }]
         },
@@ -66,5 +53,8 @@ function emptyChart() {
         }
     });
 }
+
+
 spendingChart()
 emptyChart()
+balanceDoughnut(balance_doughnut)
