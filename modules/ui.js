@@ -109,6 +109,7 @@ export function sidebar() {
     tranIcon.src = '/public/icons/transactions-icon.svg'
     tranIcon.alt = 'tran'
     tranTitle.innerHTML = 'Transactions'
+    tranLink.href = '/pages/transactions/'
 
     // wallets
     walletsIcon.src = '/public/icons/wallets-icon.svg'
@@ -120,6 +121,7 @@ export function sidebar() {
     convertIcon.src = '/public/icons/convert-icon.svg'
     convertIcon.alt = 'convert'
     convertTitle.innerHTML = 'Exchange'
+    convertLink.href = '/pages/convertation/'
 
     // market
     marketIcon.src = '/public/icons/market-icon.svg'
