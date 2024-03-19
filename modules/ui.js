@@ -37,7 +37,7 @@ export function sidebar() {
 
     let logOut = document.createElement('div')
     let logOutIcon = document.createElement('img')
-    let logOutTitle = document.createElement('h3')
+    let logOutTitle = document.createElement('a')
 
     // main
     let mainLink = document.createElement('a')
@@ -136,6 +136,7 @@ export function sidebar() {
     userName.classList.add('user_name')
 
     logOut.classList.add('log_out')
+    logOutTitle.href = '/pages/signin/'
 
     userName.innerHTML = 'james fonik'
     logOutIcon.src = '/public/icons/log-out-icon.svg'
