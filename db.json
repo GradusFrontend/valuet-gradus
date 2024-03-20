@@ -1,1 +1,13 @@
-{}
+{
+  "users": [
+    {
+      "id": "9674",
+      "email": "ruslandjavadov998@gmail.com",
+      "name": "Gradus",
+      "surname": "Bruh",
+      "password": "1234"
+    }
+  ],
+  "wallets": [],
+  "transactions": []
+}

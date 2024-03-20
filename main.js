@@ -1,9 +1,11 @@
-import { toaster, sidebar, header } from "./modules/ui";
+import { toaster, sidebar, header, reloadCardsGrid, getRandomColor } from "./modules/ui";
 import Chart from 'chart.js/auto'
 import { balanceDoughnut } from "./modules/ui";
 
 sidebar()
 header()
+
+let user = JSON.parse(localStorage.getItem('user'))
 
 const spending_chart = document.querySelector('#spending_chart')
 const empty_chart = document.querySelector('#empty_chart')
@@ -58,3 +60,31 @@ function emptyChart() {
 spendingChart()
 emptyChart()
 balanceDoughnut(balance_doughnut)
+
+
+let userNameView = document.querySelector('.user_name')
+userNameView.innerHTML = `${user.name} ${user.surname}`
+
+const walletsGrid = document.querySelector('.wallets_grid')
+reloadCardsGrid([{
+    name: 'dolarii',
+    currency: 'USD',
+    balance: '353532',
+    color: getRandomColor('0.7')
+}, {
+    name: 'dolarii',
+    currency: 'USD',
+    balance: '353532',
+    color: getRandomColor('0.7')
+}, {
+    name: 'dolarii',
+    currency: 'USD',
+    balance: '353532',
+    color: getRandomColor('0.7')
+},{
+    name: 'dolarii',
+    currency: 'USD',
+    balance: '353532',
+    color: getRandomColor('0.7')
+} ], walletsGrid)
+

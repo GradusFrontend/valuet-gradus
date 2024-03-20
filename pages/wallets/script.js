@@ -1,6 +1,7 @@
-import { header, sidebar, toaster, getRandomColor } from '../../modules/ui'
+import { header, sidebar, toaster, getRandomColor, reloadCardTransactions, reloadWallets } from '../../modules/ui'
 import Chart from 'chart.js/auto'
 import { balanceDoughnut } from '../../modules/ui';
+import moment from 'moment/moment';
 
 const balance_doughnut = document.querySelector('#total_chart')
 
@@ -41,6 +42,27 @@ function transactionsChart() {
 }
 
 transactionsChart()
+
+const tranWrap = document.querySelector('.transactions')
+const walletsWrap = document.querySelector('.wallets')
+
+reloadCardTransactions([{
+    total: 83773,
+    type: 'send',
+    created_at: moment().format("YYYYMMDD, HH:m"),
+    wallet: {
+        name: 'visa',
+        currency: 'USD'
+    }
+}], tranWrap)
+
+reloadWallets([{
+    name: 'Gradus',
+    balance: 373635,
+    currency: 'UAR',
+    color: getRandomColor('0.5')
+}, ] , walletsWrap)
+
 
 
 
