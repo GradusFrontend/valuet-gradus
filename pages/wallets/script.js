@@ -1,11 +1,15 @@
-import { header, sidebar, toaster, getRandomColor, reloadCardTransactions, reloadWallets } from '../../modules/ui'
+import { header, sidebar, toaster, getRandomColor, reloadCardTransactions, reloadWallets, reloadPercent } from '../../modules/ui'
 import Chart from 'chart.js/auto'
 import { balanceDoughnut } from '../../modules/ui';
 import moment from 'moment/moment';
+import { getData, patch, postData, getSymbols } from '../../modules/http';
+import { toProcentages } from '../../main';
+
+
+let user = JSON.parse(localStorage.getItem('user'))
 
 const balance_doughnut = document.querySelector('#total_chart')
 
-balanceDoughnut(balance_doughnut)
 sidebar()
 header()
 
@@ -56,13 +60,27 @@ reloadCardTransactions([{
     }
 }], tranWrap)
 
-reloadWallets([{
-    name: 'Gradus',
-    balance: 373635,
-    currency: 'UAR',
-    color: getRandomColor('0.5')
-}, ] , walletsWrap)
+const currencyList = document.querySelector('.currency_list')
+const total_balance_view = document.querySelector('.total_balance')
 
+getData('/wallets?user_id=' + user.id)
+    .then(res => {
+        reloadWallets(res.data, walletsWrap)
+
+        let totalBalance = 0
+        let colours = []
+        let balanceArr = []
+        let labels = []
+        res.data.forEach(item => {
+            totalBalance += +item.balance
+            balanceArr.push(+item.balance)
+            colours.push(item.color.full)
+            labels.push(item.name)
+        })
+        total_balance_view.innerHTML = totalBalance
+        balanceDoughnut(balance_doughnut, balanceArr, labels, colours)
+        reloadPercent(currencyList, res.data, toProcentages(balanceArr))
+    })
 
 
 

@@ -6,8 +6,43 @@
       "name": "Gradus",
       "surname": "Bruh",
       "password": "1234"
+    },
+    {
+      "id": "38d6",
+      "email": "asd@gmail.com",
+      "name": "Adolf",
+      "surname": "Hitler",
+      "password": "1234"
     }
   ],
-  "wallets": [],
-  "transactions": []
+  "wallets": [
+    {
+      "id": "fd61",
+      "created_at": "20240321, 16:2",
+      "updated_at": "20240321, 16:2",
+      "color": {
+        "transperent": "rgba(72, 174, 113, 0.5)",
+        "full": "rgb(72, 174, 113)"
+      },
+      "user_id": "9674",
+      "name": "Gradus Visa",
+      "currency": "BTC",
+      "balance": 100000
+    },
+    {
+      "id": "090d",
+      "created_at": "20240321, 16:3",
+      "updated_at": "20240321, 16:3",
+      "color": {
+        "transperent": "rgba(100, 80, 13, 0.5)",
+        "full": "rgb(100, 80, 13)"
+      },
+      "user_id": "9674",
+      "name": "Zolo",
+      "currency": "AED",
+      "balance": 20000
+    }
+  ],
+  "transactions": [
+  ]
 }

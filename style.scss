@@ -315,16 +315,9 @@ header {
 
 
     .doughnut_chart_balance {
-      // position: relative;
-      // width: 150px;
-      // height: 150px;
-      // border-radius: 50%;
-      // border: 18px solid $lightblue;
-      // margin: 0 auto;
-      // box-shadow: 0px 15px 40px 0px #018FFF26;
       width: 160px;
       height: 160px;
-      margin:  0 auto;
+      margin: 0 auto;
       // margin-top: -14px;
 
       .balance_position {
@@ -519,4 +512,112 @@ header {
       font-weight: 300;
     }
   }
+}
+
+#add_wallet_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  border: 0;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 25px 25px 0px #00032080;
+  background: $background;
+  color: #fff;
+  padding: 50px 50px 50px;
+  position: relative;
+
+  .modal_wrap {
+
+    .add_wallet_text {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    & form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      color: #fff;
+
+      & input,
+      & select {
+        color: #fff;
+        box-shadow: 0px 4px 4px 0px #0000000D;
+        background: #2E3558;
+        border: 0;
+        border-radius: 10px;
+        outline: 0;
+        padding: 12px 12px;
+        width: 300px;
+        font-size: 16px;
+      }
+
+      & select {
+        font-size: 14px;
+      }
+
+      & input:focus {
+        border-bottom: 2px solid #1288E8;
+        box-shadow: 0px 4px 20px 0px #018FFF26;
+      }
+
+      & button {
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 12px 25px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px 0px #00000026;
+        background: linear-gradient(271.88deg, #3887FE 4.26%, #3BA0FF 51.37%, #5FB2FF 99.01%);
+        border: 0;
+        cursor: pointer;
+        transition: .3s ease;
+        margin-top: 15px;
+        // margin:  0 auto;
+        // width: 140px;
+
+      }
+
+      & button:hover {
+        scale: 1.1;
+        translate: 0 -5px;
+      }
+    }
+  }
+
+  .close_modal {
+    color: $lightblue;
+    position: absolute;
+    top: 0px;
+    right: 13px;
+    background: 0;
+    border: 0;
+    font-size: 40px;
+    cursor: pointer;
+  }
+}
+
+@keyframes scaleFade {
+  from {
+    scale: 0;
+  } to {
+    scale: 1;
+  }
+}
+@keyframes scaleFadeClose {
+  from {
+    scale: 1;
+  } to {
+    scale: 0;
+  }
+}
+
+.scaleFade {
+  animation: scaleFade .5s ease;
+}
+
+.scaleFadeClose {
+  animation: scaleFadeClose .3s ease;
 }

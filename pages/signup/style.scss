@@ -182,6 +182,10 @@ body {
                 background: 0;
                 width: 300px;
             }
+
+            & input:-internal-autofill-selected {
+                background: 0;
+            }
         }
 
         .input_box:focus-within {

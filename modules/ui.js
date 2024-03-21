@@ -1,4 +1,5 @@
 import { Chart } from "chart.js"
+import 'chartjs-plugin-datalabels'
 import moment from "moment/moment"
 
 export function toaster(text, type) {
@@ -200,18 +201,13 @@ export function header() {
   header_tools.append(massages, notifications)
 }
 
-export function balanceDoughnut(place) {
+export function balanceDoughnut(place, numbers, labels, colours) {
 
   const data = {
     datasets: [{
-      label: 'My First Dataset',
-      data: [300, 50, 100, 140],
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)',
-        '#d595d5'
-      ],
+      label: "Wallet",
+      data: numbers,
+      backgroundColor: colours,
       hoverOffset: 4
     }]
   };
@@ -229,6 +225,9 @@ export function balanceDoughnut(place) {
         },
         title: {
           display: false,
+        }, 
+        datalabels: {
+          display: false
         }
       }
     },
@@ -238,15 +237,14 @@ export function balanceDoughnut(place) {
   new Chart(place, config)
 }
 
-export function getRandomColor(opacity) {
+export function getRandomColor() {
   const r = Math.floor(Math.random() * 200);
   const g = Math.floor(Math.random() * 200);
   const b = Math.floor(Math.random() * 200);
 
-  if (opacity === '1') {
-    return `rgb(${r}, ${g}, ${b})`;
-  } else {
-    return `rgb(${r}, ${g}, ${b}, ${opacity})`;
+  return {
+    transperent: `rgba(${r}, ${g}, ${b}, 0.5)`,
+    full: `rgb(${r}, ${g}, ${b})`
   }
 }
 
@@ -257,11 +255,11 @@ export function reloadCardsGrid(arr, place) {
 
     let wallet = document.createElement('div')
     wallet.classList.add('wallets_item')
-    wallet.style.background = `linear-gradient(237.07deg, ${item.color} -8.06%, #0F0B38 96.63%)`
+    wallet.style.background = `linear-gradient(237.07deg, ${item.color.transperent} -8.06%, #0F0B38 96.63%)`
     wallet.innerHTML += `
 
     <h2 class="wallet_name">${item.name}</h2>
-    <h3 class="wallet_min_balance">${item.balance} ${item.currency}</h3>
+    <h3 class="wallet_min_balance">${item.balance.toLocaleString('ru')} ${item.currency}</h3>
 
     <div class="wallet_stonks">
 
@@ -349,10 +347,10 @@ export function reloadWallets(arr, place) {
     walletBalance.classList.add('balance')
     walletColor.classList.add('wallet_color')
 
-    wallet.style.background = `linear-gradient(237.07deg, ${item.color} -8.06%, rgba(15, 11, 56, 0.5) 96.63%)`
+    wallet.style.background = `linear-gradient(237.07deg, ${item.color.transperent} -8.06%, rgba(15, 11, 56, 0.5) 96.63%)`
     walletName.innerHTML = item.name
     walletBalance.innerHTML = item.balance.toLocaleString('ru') + ' ' + item.currency
-    walletColor.style.backgroundColor = item.color
+    walletColor.style.backgroundColor = item.color.full
     walletPulse.src = '/public/icons/pulse.svg'
     walletPulse.alt = 'pulse'
 
@@ -363,14 +361,20 @@ export function reloadWallets(arr, place) {
   }
 }
 
-/* <div class="wallet">
-    <div class="wallet_info">
-        <h3 class="wallet_name">USD</h3>
-        <div class="wallet_balance_box">
-            <h2 class="balance">8 888 USD</h2>
-            <div class="wallet_color"></div>
-        </div>
-    </div>
+export function reloadPercent(place, arr, procents) {
+  place.innerHTML = ''
 
-    <img src="/public/icons/pulse.svg" alt="">
-</div> */
+  for(let item of arr) {
+    let idx = arr.indexOf(item)
+
+    place.innerHTML += `
+    <div class="currency_item">
+        <div class="currency_title">
+            <div class="currency_color" style="background-color: ${item.color.full}; box-shadow: 0px 4px 4px 0px ${item.color.transperent}"></div>
+            <p class="currency_name">${item.name}</p>
+        </div>
+
+        <h4 class="currency_percent">${procents[idx]} %</h4>
+    </div>`
+  }
+}
