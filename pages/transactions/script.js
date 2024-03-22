@@ -11,17 +11,10 @@ header()
 
 const transactionsWrap = document.querySelector('#transactions')
 
-// reloadTransactions([{
-//     id: 'j3j42jj23',
-//     total: 32342,
-//     status: 'completed',
-//     created_at: moment().format("YYYYMMDD, HH:m"),
-//     type: 'recive',
-//     wallet: {
-//         name: 'gradus visa',
-//         currency: 'AED',
-//     }
-// }], transactionsWrap)
+getData('/transactions?user_id=' + user.id)
+    .then(res => {
+        reloadTransactions(res.data, transactionsWrap)
+    })
 
 const addWalletModal = document.querySelector('#add_tran_modal')
 const showModal = document.querySelector('.add_tran_btn')

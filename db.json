@@ -27,7 +27,7 @@
       "user_id": "9674",
       "name": "Gradus Visa",
       "currency": "BTC",
-      "balance": 100000
+      "balance": 130000
     },
     {
       "id": "090d",
@@ -40,9 +40,97 @@
       "user_id": "9674",
       "name": "Zolo",
       "currency": "AED",
-      "balance": 20000
+      "balance": 50000
     }
   ],
   "transactions": [
+    {
+      "id": "ca78",
+      "created_at": "20240322, 14:47",
+      "updated_at": "20240322, 14:47",
+      "user_id": "9674",
+      "wallet": {
+        "id": "fd61",
+        "created_at": "20240321, 16:2",
+        "updated_at": "20240321, 16:2",
+        "color": {
+          "transperent": "rgba(72, 174, 113, 0.5)",
+          "full": "rgb(72, 174, 113)"
+        },
+        "name": "Gradus Visa",
+        "currency": "BTC",
+        "balance": 140000
+      },
+      "type": "recive",
+      "status": "error",
+      "total": "40000",
+      "wallet_id": "fd61"
+    },
+    {
+      "id": "27eb",
+      "created_at": "20240322, 15:58",
+      "updated_at": "20240322, 15:58",
+      "user_id": "9674",
+      "wallet": {
+        "id": "fd61",
+        "created_at": "20240321, 16:2",
+        "updated_at": "20240321, 16:2",
+        "color": {
+          "transperent": "rgba(72, 174, 113, 0.5)",
+          "full": "rgb(72, 174, 113)"
+        },
+        "name": "Gradus Visa",
+        "currency": "BTC",
+        "balance": 135000
+      },
+      "type": "send",
+      "status": "completed",
+      "total": "5000",
+      "wallet_id": "fd61"
+    },
+    {
+      "id": "f105",
+      "created_at": "20240322, 15:58",
+      "updated_at": "20240322, 15:58",
+      "user_id": "9674",
+      "wallet": {
+        "id": "fd61",
+        "created_at": "20240321, 16:2",
+        "updated_at": "20240321, 16:2",
+        "color": {
+          "transperent": "rgba(72, 174, 113, 0.5)",
+          "full": "rgb(72, 174, 113)"
+        },
+        "name": "Gradus Visa",
+        "currency": "BTC",
+        "balance": 130000
+      },
+      "type": "send",
+      "status": "completed",
+      "total": "5000",
+      "wallet_id": "fd61"
+    },
+    {
+      "id": "458b",
+      "created_at": "20240322, 15:58",
+      "updated_at": "20240322, 15:58",
+      "user_id": "9674",
+      "wallet": {
+        "id": "090d",
+        "created_at": "20240321, 16:3",
+        "updated_at": "20240321, 16:3",
+        "color": {
+          "transperent": "rgba(100, 80, 13, 0.5)",
+          "full": "rgb(100, 80, 13)"
+        },
+        "name": "Zolo",
+        "currency": "AED",
+        "balance": 50000
+      },
+      "type": "recive",
+      "status": "waiting",
+      "total": "30000",
+      "wallet_id": "090d"
+    }
   ]
 }

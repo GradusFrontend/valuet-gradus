@@ -303,7 +303,7 @@ header {
     .currency_list {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 7px;
       height: 80px;
       overflow-y: scroll;
       color: #fff;
@@ -329,12 +329,14 @@ header {
 
           .currency_name {
             font-size: 12px;
+            white-space: nowrap;
           }
         }
 
         .currency_percent {
           font-size: 12px;
           font-weight: 600;
+          white-space: nowrap;
         }
       }
     }

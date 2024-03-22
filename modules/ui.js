@@ -358,7 +358,12 @@ export function reloadWallets(arr, place) {
     wallet.append(walletInfo, walletPulse)
     walletInfo.append(walletName, walletBalanceBox)
     walletBalanceBox.append(walletBalance, walletColor)
+
+    wallet.onclick = () => {
+      location.assign('/pages/wallets/?id=' + item.id)
+    }
   }
+
 }
 
 export function reloadPercent(place, arr, procents) {

@@ -3,6 +3,7 @@ import Chart from 'chart.js/auto'
 import { balanceDoughnut } from "./modules/ui";
 import { getSymbols, postData, getData, patch } from "./modules/http";
 import moment from "moment";
+import { toProcentages } from "./modules/funcs";
 
 sidebar()
 header()
@@ -14,15 +15,16 @@ const empty_chart = document.querySelector('#empty_chart')
 const balance_doughnut = document.querySelector('#balance_doughnut')
 const currencyList = document.querySelector('.currency_list')
 const total_balance_view = document.querySelector('.total_balance_view')
+let spending_total = document.querySelector('.spending_total')
 
-function spendingChart() {
+function spendingChart(labels, totals) {
     new Chart(spending_chart, {
         type: 'line',
         data: {
-            labels: [8, 10, 12, 14, 16],
+            labels: labels,
             datasets: [{
                 label: 'total',
-                data: [20, 40, 22, 30, 50, 42, 60],
+                data: totals,
                 fill: false,
                 borderColor: '#0097E8',
                 tension: 0.4
@@ -60,14 +62,30 @@ function emptyChart() {
     });
 }
 
-
-spendingChart()
 emptyChart()
-// balanceDoughnut(balance_doughnut)
-
 
 let userNameView = document.querySelector('.user_name')
 userNameView.innerHTML = `${user.name} ${user.surname}`
+
+getData('/transactions?user_id=' + user.id)
+    .then(res => {
+        
+        let filtered = res.data.filter(item => item.type === 'send')
+        let spended = 0
+        let spendedArr = []
+        let dates =[]
+      
+        for (let item of filtered) {
+            let dateMin = item.created_at.split(',').at(0)
+            const date = `${dateMin.slice(0, 4)}-${dateMin.slice(4, 6)}-${dateMin.slice(6)}`
+            spended += +item.total
+            dates.push(date)
+            spendedArr.push(item.total)
+        }
+        spendingChart(dates, spendedArr)
+        spending_total.innerHTML = spended.toLocaleString('ru')
+    })
+
 
 const walletsGrid = document.querySelector('.wallets_grid')
 
@@ -150,13 +168,5 @@ addWalletForm.onsubmit = (e) => {
     }
 }
 
-export function toProcentages(arr) {
-    let total = 0
-    for (let item of arr) {
-        total += item
-    }
-    return arr.map(function (x) {
-        return parseFloat((x * 100 / total).toFixed(2))
-    })
-}
+
 

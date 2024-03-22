@@ -3,7 +3,7 @@ import Chart from 'chart.js/auto'
 import { balanceDoughnut } from '../../modules/ui';
 import moment from 'moment/moment';
 import { getData, patch, postData, getSymbols } from '../../modules/http';
-import { toProcentages } from '../../main';
+import { toProcentages } from '../../modules/funcs';
 
 
 let user = JSON.parse(localStorage.getItem('user'))
