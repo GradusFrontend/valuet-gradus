@@ -26,8 +26,8 @@
       },
       "user_id": "9674",
       "name": "Gradus Visa",
-      "currency": "BTC",
-      "balance": 130000
+      "currency": "BBD",
+      "balance": 16640229985.772799
     },
     {
       "id": "090d",
@@ -39,8 +39,8 @@
       },
       "user_id": "9674",
       "name": "Zolo",
-      "currency": "AED",
-      "balance": 50000
+      "currency": "AOA",
+      "balance": 11443690.627165
     }
   ],
   "transactions": [

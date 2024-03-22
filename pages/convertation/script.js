@@ -48,7 +48,6 @@ getData('/wallets?user_id=' + user.id)
                     }
                 })
                     .then(res => {
-                        console.log(res.data);
                         to_total_num.innerHTML = res.data.result
                         to_total_currency.innerHTML = res.data.query.to
                     })
@@ -59,17 +58,6 @@ getData('/wallets?user_id=' + user.id)
 
         wallets = res.data
     })
-
-// axios.get(`https://api.apilayer.com/fixer/convert?to=aed&from=${selected_wallet.currency}&amount=${selected_wallet.balance}`, {
-//     redirect: 'follow',
-//     headers: {
-//         "apikey": import.meta.env.VITE_API_KEY
-//     }
-// })
-//     .then(res => {
-//         to_total_num.innerHTML = res.data.result
-//         to_total_currency.innerHTML = res.data.query.to
-//     })
 
 from_select.onchange = (e) => {
     const id = e.target.value
@@ -82,6 +70,7 @@ let selected_currency = null
 
 to_select.onchange = (e) => {
     selected_currency = e.target.value
+    console.log(e.target.value);
 
     axios.get(`https://api.apilayer.com/fixer/convert?to=${selected_currency}&from=${selected_wallet.currency}&amount=${selected_wallet.balance}`, {
         redirect: 'follow',
@@ -98,13 +87,37 @@ to_select.onchange = (e) => {
 convert_form.onsubmit = (e) => {
     e.preventDefault()
 
-    axios.get(`https://api.apilayer.com/fixer/convert?to=${selected_currency}&from=${selected_wallet.currency}&amount=${selected_wallet.balance}`, {
-        redirect: 'follow',
-        headers: {
-            "apikey": import.meta.env.VITE_API_KEY
-        }
-    })
-        .then(res => {
-            console.log(res.data);
+    if (selected_currency) {
+        axios.get(`https://api.apilayer.com/fixer/convert?to=${selected_currency}&from=${selected_wallet.currency}&amount=${selected_wallet.balance}`, {
+            redirect: 'follow',
+            headers: {
+                "apikey": import.meta.env.VITE_API_KEY
+            }
         })
+            .then(res => {
+                patch('/wallets/' + selected_wallet.id, {
+                    balance: res.data.result,
+                    currency: res.data.query.to
+                })
+                    .then(res => {
+                        location.reload()
+                    })
+            })
+    } else {
+        axios.get(`https://api.apilayer.com/fixer/convert?to=aed&from=${selected_wallet.currency}&amount=${selected_wallet.balance}`, {
+            redirect: 'follow',
+            headers: {
+                "apikey": import.meta.env.VITE_API_KEY
+            }
+        })
+            .then(res => {
+                patch('/wallets/' + selected_wallet.id, {
+                    balance: res.data.result,
+                    currency: res.data.query.to
+                })
+                    .then(res => {
+                        location.reload()
+                    })
+            })
+    }
 }
