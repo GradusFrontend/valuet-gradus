@@ -154,6 +154,7 @@ body {
       .active_page {
         border-bottom: 3px solid #1288E8;
         background-color: #32395e;
+        border-radius: 5px;
 
         & h3 {
           color: #fff;
@@ -441,6 +442,7 @@ header {
       background: linear-gradient(237.07deg, #604392 -8.06%, #0F0B38 96.63%);
       border-radius: 5px;
       color: #fff;
+      transition: .3s ease;
 
       .wallet_name {
         position: absolute;
@@ -468,6 +470,10 @@ header {
           }
         }
       }
+    }
+
+    .wallets_item:hover {
+      scale: 1.04;
     }
 
     // .wallets_item:nth-child(1), .wallets_item:nth-child(2) {

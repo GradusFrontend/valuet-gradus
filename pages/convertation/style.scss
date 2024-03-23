@@ -151,6 +151,7 @@ body {
             .active_page {
                 border-bottom: 3px solid #1288E8;
                 background-color: #32395e;
+                border-radius: 5px;
 
                 & h3 {
                     color: #fff;
@@ -262,11 +263,13 @@ header {
     color: #fff;
 }
 
-.from_wrap, .to_wrap {
+.from_wrap,
+.to_wrap {
     width: 100%;
 }
 
-.from_text, .to_text {
+.from_text,
+.to_text {
     font-size: 14px;
     color: #616A8B;
     margin-block-end: 5px;
@@ -278,19 +281,22 @@ header {
     gap: 25px;
     color: #fff;
 
-    .from_box, .to_box {
+    .from_box,
+    .to_box {
         background: linear-gradient(180deg, rgba(27, 18, 78, 0.2) 0%, #0F0B38 93.37%);
         box-shadow: 0px 4px 25px 0px #00000040;
         padding: 32px 32px 28px 32px;
         border-radius: 5px;
 
-        .from_top, .to_top {
+        .from_top,
+        .to_top {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 35px;
 
-            .to_wallet_color, .from_wallet_color {
+            .to_wallet_color,
+            .from_wallet_color {
                 width: 88px;
                 height: 88px;
                 border-radius: 50%;
@@ -311,7 +317,8 @@ header {
             }
         }
 
-        .from_total, .to_total {
+        .from_total,
+        .to_total {
             width: 100%;
             display: flex;
             align-items: center;

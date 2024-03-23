@@ -169,6 +169,23 @@ export function sidebar() {
   bottom_sidebar.append(line, account, logOut)
   account.append(avatar, userName)
   logOut.append(logOutIcon, logOutTitle)
+
+  let pages = {
+    "/": mainLink,
+    "wallets": walletsLink,
+    "transactions": tranLink,
+    "convertation": convertLink
+}
+
+let page = location.pathname.split('/')[2]
+page = page ? page : "/"
+console.log(pages[page]);
+
+if (pages[page]) {
+    pages[page].classList.add('active_page')
+} else {
+    pages.wallets.classList.add('active_page')
+}
 }
 
 export function header() {

@@ -151,6 +151,7 @@ body {
       .active_page {
         border-bottom: 3px solid #1288E8;
         background-color: #32395e;
+        border-radius: 5px;
 
         & h3 {
           color: #fff;
@@ -265,6 +266,7 @@ header {
 #wallets_section {
   display: flex;
   gap: 16px;
+
   .total_balance_box {
     background: linear-gradient(180deg, rgba(27, 18, 78, 0.2) 0%, #0F0B38 93.37%);
     box-shadow: 0px 4px 25px 0px #00000040;
@@ -365,12 +367,13 @@ header {
       flex-direction: column;
       justify-content: space-between;
       cursor: pointer;
+      transition: .3s ease;
 
       .wallet_info {
         display: flex;
         justify-content: space-between;
 
-        
+
 
         .balance {
           font-size: 16px;
@@ -396,6 +399,10 @@ header {
         }
       }
     }
+
+    .wallet:hover {
+      scale: 1.02;
+    }
   }
 
   .wallets::-webkit-scrollbar {
@@ -410,7 +417,7 @@ header {
   margin-top: 25px;
   // height: 48%;
 
-  .transactions_chart {
+  .transactions_chart_box {
     background: linear-gradient(176.95deg, rgba(27, 18, 78, 0.2) -32.8%, #0F0B38 88.83%);
     box-shadow: 0px 4px 25px 0px #00000040;
     padding: 25px;
@@ -432,6 +439,7 @@ header {
       font-size: 17px;
       font-weight: 500;
     }
+
     .transactions {
       padding-top: 15px;
       border-top: 1px solid #2D317A;
